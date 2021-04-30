@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
         pointHoverRadius : 7,
         pointHoverBackgroundColor : '#F8CB1C',
         pointHoverBorderColor : '#f8cb1c85',
-        pointHoverBorderWidth : 10
+        pointHoverBorderWidth : 10,
       }
     ]
 
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
       },
       hover : {
         mode : 'x',
-        intersect : false
+        intersect : true
       },
       scales : {
         xAxes : [
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
             },
             gridLines : {
               display : false,
-            },
+            }
           },
 
         ],
@@ -87,7 +87,8 @@ export class AppComponent implements OnInit {
             callback : (value:string, index, values) => {
               const newValue = parseFloat(value).toFixed(2)
               return newValue + ' K'
-            }
+            },
+            stepSize: 0.14 // para poner 7 labels
           },
           gridLines : {
             borderDash: [1, 2],
@@ -108,6 +109,7 @@ export class AppComponent implements OnInit {
               const newValue = parseFloat(value).toFixed(2)
               return newValue
             },
+            stepSize: 4 // para poner 7 labels
           },
           gridLines : {
             drawBorder: false,
